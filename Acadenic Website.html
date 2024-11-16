@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sino-Zam Vocational College</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #004080;
+            color: rgb(19, 5, 5);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: blue(255, 255, 255);
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            color: #004080;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input,
+        form textarea,
+        form button {
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        form button {
+            background: #004080;
+            color: green;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #004080;
+            color: purple;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        #search {
+            display: block;
+            margin: 1rem auto;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        #program-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        #program-list li {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sino-Zam Vocational College of Science and Technology</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#contact">0761867781</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>
+                Welcome to the Sino-Zam Vocational College of Science and Technology, where innovation meets excellence.
+                We offer hands-on training and cutting-edge programs designed to prepare you for a successful future.
+            </p>
+        </section>
+
+        <section id="programs">
+            <h2>Programs We Offer</h2>
+            <input type="text" id="search" placeholder="Search programs..." onkeyup="filterPrograms()">
+            <ul id="program-list">
+                <li>Mechatronics</li>
+                <li>MMA (Multimedia Arts)</li>
+                <li>MMMEE (Machinery Maintenance and Mechanical Engineering)</li>
+                <li>AIT (Applied Information Technology)</li>
+                <li>Rigging</li>
+                <li>Architecture</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="sino-zamcollege2019@gmail.com">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sino-Zam Vocational College of Science and Technology. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript Functions
+
+        // Filter programs dynamically
+        function filterPrograms() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const programs = document.querySelectorAll('#program-list li');
+
+            programs.forEach((program) => {
+                if (program.textContent.toLowerCase().includes(searchInput)) {
+                    program.style.display = '';
+                } else {
+                    program.style.display = 'none';
+                }
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert(`Thank you, ${name}, for reaching out! We will respond to your email at ${email} soon.`);
+                this.reset();
+            } else {
+                alert('Please fill in all fields before submitting.');
+            }
+        });
+    </script>
+</body>
+
+</html>
